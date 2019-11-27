@@ -1,4 +1,5 @@
 import React from 'react'
+import scss from './AddBook.module.scss'
 
 class AddBook extends React.Component {
   constructor(props) {
@@ -20,17 +21,17 @@ class AddBook extends React.Component {
 
  render() {
     return (
-        <div className='add-book'>
-          <form className='form' onSubmit={ (e) => this.handleSubmit(e) }>
+        <div className={scss.addBook}>
+          <form className={scss.form} onSubmit={ (e) => this.handleSubmit(e) }>
             <input 
-              className='form__input'
+              className={scss.form__input}
               id='name'
               type='text' 
               value={this.state.value} 
               onChange={ (e) => this.handleChange(e) }
               placeholder='Введите название книги'
               />
-            <input className='form__submit' type='submit' name='submit'/>
+            <input className={scss.form__submit} type='submit' name='submit'/>
           </form>
         </div>
     )

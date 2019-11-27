@@ -1,0 +1,21 @@
+.addBook {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  &__input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 5px 5px;
+  }
+}
