@@ -9,8 +9,8 @@ class App extends React.Component {
   }
 
   handleAddBook = (data) => {
+    data.id = Date.now();
     const nextBook = [...this.state.books, data]
-    //присвоить id, проверить при этом есть ли такой id
     this.setState({ books: nextBook })
   }
 

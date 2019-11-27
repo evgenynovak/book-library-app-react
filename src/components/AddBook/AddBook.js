@@ -5,18 +5,19 @@ class AddBook extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-       value : '' 
+       id : '',
+       titleBook : ''
       };
   }
 
   handleChange(e) {
-    this.setState({value: e.target.value});
+    this.setState({titleBook: e.target.value});
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    this.props.onAddBook(this.state.value)
-    this.setState({value: ''})
+    this.props.onAddBook(this.state)
+    this.setState({titleBook: ''})
   }
 
  render() {
@@ -27,7 +28,7 @@ class AddBook extends React.Component {
               className={scss.form__input}
               id='name'
               type='text' 
-              value={this.state.value} 
+              value={this.state.titleBook} 
               onChange={ (e) => this.handleChange(e) }
               placeholder='Введите название книги'
               />
