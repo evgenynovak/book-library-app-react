@@ -1,7 +1,7 @@
 import React from 'react'
-import AddBook from './AddBook'
-import BooksList from './BooksList'
-import bookBase from '../bookbase.js'
+import AddBook from './components/AddBook/AddBook'
+import BooksList from './components/BookList/BookList'
+import bookBase from './bookbase.js'
 
 class App extends React.Component {
   state = {
