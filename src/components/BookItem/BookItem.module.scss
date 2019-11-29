@@ -5,7 +5,21 @@
   &:first-child{
     margin-top: 0px;
   }
+  &__buttonOptions {
+    &_hidden {
+      display: none
+    }
+  }
+  &__buttonDelete {
+    &_hidden {
+      display: none
+    }
+  }
+  &__buttonEdit {
+    &_hidden {
+      display: none
+    }
+  }
+
 }
-
-
 
