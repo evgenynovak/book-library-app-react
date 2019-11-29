@@ -1,0 +1,14 @@
+.BookList {
+  padding: 5px;
+  &__items {
+    list-style-type: none;
+  }
+  &__item {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    &:first-child{
+      margin-top: 0px;
+    }
+  }
+}
