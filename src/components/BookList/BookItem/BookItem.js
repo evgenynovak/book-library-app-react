@@ -17,9 +17,10 @@ class BookItem extends React.Component {
  render() {
   const data = this.props.data
   //в зависимости от значения buttonOptionsIsPressed 
-  //присваеваем переменной scssButtonOption нужное имя класса, далее scssButtonOption используем в className
+  //отображаем или нет кнопки Редактировать и Удалить
   //!!!напрямую прописать условие в className не получилось, ругается то на {} то на scss.!!!ВОПРОС!!!
-  const scssButtonOption = this.state.buttonOptionsIsPressed ? scss.buttonOptions_hidden : scss.buttonOptions
+  //пишу через использование переменных scssButtonDeleten и scssbuttonEdit
+  //const scssButtonOption = this.state.buttonOptionsIsPressed ? scss.buttonOptions_hidden : scss.buttonOptions
   const scssButtonDeleten = this.state.buttonOptionsIsPressed ? scss.buttonDelete : scss.buttonDelete_hidden
   const scssbuttonEdit = this.state.buttonOptionsIsPressed ? scss.buttonEdit : scss.buttonEdit_hidden
     return (
@@ -29,7 +30,7 @@ class BookItem extends React.Component {
             <button className={scssButtonDeleten}>Удалить</button>
             <button
               onClick={this.handleButtonOptionsChange}
-              className={scssButtonOption}>
+              className={scss.buttonOptions}>
               ...
             </button>
       </li>
