@@ -10,7 +10,7 @@ class App extends React.Component {
 
   handleAddBook = (data) => {
     data.id = Date.now();
-    const nextBook = [...this.state.books, data]
+    const nextBook = [data, ...this.state.books]
     this.setState({ books: nextBook })
   }
 
