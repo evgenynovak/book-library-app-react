@@ -1,0 +1,29 @@
+.item {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  &:first-child{
+    margin-top: 0px;
+  }
+}
+
+.buttonOptions {
+  &_hidden {
+    display: none
+  }
+}
+
+.buttonDelete {
+  &_hidden {
+    display: none
+  }
+}
+
+.buttonEdit {
+  &_hidden {
+    display: none
+  }
+}
+
+
+

@@ -1,5 +1,5 @@
 import React from 'react'
-import BookItem from '../BookItem/BookItem'
+import BookItem from './BookItem/BookItem'
 import scss from './BookList.module.scss'
 
 class BookList extends React.Component {
@@ -17,7 +17,7 @@ class BookList extends React.Component {
  render() {
    return (
       <div className={scss.BookList}>
-        <ul className={scss.BookList__items}>
+        <ul className={scss.items}>
         {this.renderBookItems()}
         </ul>
       </div>

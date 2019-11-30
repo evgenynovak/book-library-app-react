@@ -1,7 +1,8 @@
 .BookList {
   padding: 5px;
-  &__items {
+}
+
+.items {
     padding-inline-start: 0;
     list-style-type: none;
-  }
 }

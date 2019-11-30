@@ -19,11 +19,11 @@ class BookItem extends React.Component {
   //в зависимости от значения buttonOptionsIsPressed 
   //присваеваем переменной scssButtonOption нужное имя класса, далее scssButtonOption используем в className
   //!!!напрямую прописать условие в className не получилось, ругается то на {} то на scss.!!!ВОПРОС!!!
-  const scssButtonOption = this.state.buttonOptionsIsPressed ? scss.BookItem__buttonOptions_hidden : scss.BookItem__buttonOptions
-  const scssButtonDeleten = this.state.buttonOptionsIsPressed ? scss.BookItem__buttonDelete : scss.BookItem__buttonDelete_hidden
-  const scssbuttonEdit = this.state.buttonOptionsIsPressed ? scss.BookItem__buttonEdit : scss.BookItem__buttonEdit_hidden
+  const scssButtonOption = this.state.buttonOptionsIsPressed ? scss.buttonOptions_hidden : scss.buttonOptions
+  const scssButtonDeleten = this.state.buttonOptionsIsPressed ? scss.buttonDelete : scss.buttonDelete_hidden
+  const scssbuttonEdit = this.state.buttonOptionsIsPressed ? scss.buttonEdit : scss.buttonEdit_hidden
     return (
-      <li className={scss.BookItem}>
+      <li className={scss.item}>
             {data.titleBook}
             <button className={scssbuttonEdit}>Редактировать</button>
             <button className={scssButtonDeleten}>Удалить</button>
