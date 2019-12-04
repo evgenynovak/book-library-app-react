@@ -1,4 +1,6 @@
 .item {
+  display: flex;
+  align-items: center;
   margin-top: 10px;
   padding: 10px;
   background-color: #ffffff;
@@ -7,21 +9,27 @@
   }
 }
 
+.bookName {
+  flex-grow: 1;
+  overflow:hidden;
+}
+
+
 .buttonOptions {
   &_hidden {
-    display: none
+    display: none;
   }
 }
 
 .buttonDelete {
   &_hidden {
-    display: none
+    display: none;
   }
 }
 
 .buttonEdit {
   &_hidden {
-    display: none
+    display: none;
   }
 }
 

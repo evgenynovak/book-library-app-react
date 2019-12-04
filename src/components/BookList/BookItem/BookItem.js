@@ -30,7 +30,7 @@ class BookItem extends React.Component {
   const scssbuttonEdit = this.state.buttonOptionsIsPressed ? scss.buttonEdit : scss.buttonEdit_hidden
     return (
       <li className={scss.item}>
-            {data.titleBook}
+            <div className={scss.bookName}>{data.titleBook}</div>
             <button className={scssbuttonEdit}>Редактировать</button>
             <button 
               onClick={this.handleButtonOptionsDelete}
