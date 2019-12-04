@@ -3,12 +3,18 @@ import BookItem from './BookItem/BookItem'
 import scss from './BookList.module.scss'
 
 class BookList extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      isRemoveItem: false  
+    }
+  }
 
   handleRemoveItem = (id) => {
     const index = this.props.data.findIndex(item => item.id == id);
       if (index > -1) {
         this.props.data.splice(index, 1);
+        this.setState( { isRemoveItem: true} )
       }
   } 
 
