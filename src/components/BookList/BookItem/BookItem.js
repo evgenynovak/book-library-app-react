@@ -55,9 +55,7 @@ class BookItem extends React.Component {
             ...
           </button>
         </div>
-        <div>
-           {buttonEditIsPressed && <BookEdit/>}
-        </div>
+           {buttonEditIsPressed && <BookEdit data={this.props.data}/>}
       </li>
     )
  }

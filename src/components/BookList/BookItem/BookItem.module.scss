@@ -14,13 +14,6 @@
   align-items: center;
 }
 
-.itemEdit {
-  display: flex;
-  &_hidden {
-    display: none;
-  }
-}
-
 .bookName {
   flex-grow: 1;
   overflow:hidden;
