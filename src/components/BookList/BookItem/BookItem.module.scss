@@ -1,11 +1,23 @@
 .item {
-  display: flex;
-  align-items: center;
   margin-top: 10px;
   padding: 10px;
   background-color: #ffffff;
   &:first-child{
     margin-top: 0px;
+  }
+}
+
+.itemBookName {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.itemEdit {
+  display: flex;
+  &_hidden {
+    display: none;
   }
 }
 
@@ -32,6 +44,7 @@
     display: none;
   }
 }
+
 
 
 

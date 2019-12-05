@@ -1,11 +1,13 @@
 import React from 'react'
+import BookEdit from './BookEdit/BookEdit'
 import scss from './BookItem.module.scss'
 
 class BookItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        buttonOptionsIsPressed: false  // начальное значение для кнопки
+        buttonOptionsIsPressed: false ,  // начальное значение для кнопки
+        buttonEditIsPressed: false
       };
   }
 
@@ -16,11 +18,20 @@ class BookItem extends React.Component {
 
  handleButtonOptionsChange = (e) => { 
    e.preventDefault()
-   this.setState({buttonOptionsIsPressed: !this.state.buttonOptionsIsPressed}) 
+   this.setState({buttonOptionsIsPressed: !this.state.buttonOptionsIsPressed})
  }
+
+ handleButtonEditChange = (e) => {
+  e.preventDefault()
+  this.setState({buttonEditIsPressed: !this.state.buttonEditIsPressed})
+  
+ }
+
+
 
  render() {
   const data = this.props.data
+  const buttonEditIsPressed = this.state.buttonEditIsPressed
   //в зависимости от значения buttonOptionsIsPressed 
   //отображаем или нет кнопки Редактировать и Удалить
   //!!!напрямую прописать условие в className не получилось, ругается то на {} то на scss.!!!ВОПРОС!!!
@@ -30,16 +41,23 @@ class BookItem extends React.Component {
   const scssbuttonEdit = this.state.buttonOptionsIsPressed ? scss.buttonEdit : scss.buttonEdit_hidden
     return (
       <li className={scss.item}>
-            <div className={scss.bookName}>{data.titleBook}</div>
-            <button className={scssbuttonEdit}>Редактировать</button>
-            <button 
-              onClick={this.handleButtonOptionsDelete}
-              className={scssButtonDelete}>Удалить</button>
-            <button
-              onClick={this.handleButtonOptionsChange}
-              className={scss.buttonOptions}>
-              ...
-            </button>
+        <div className={scss.itemBookName}>
+          <div className={scss.bookName}>{data.titleBook}</div>
+          <button 
+            className={scssbuttonEdit}
+            onClick={this.handleButtonEditChange}>Редактировать</button>
+          <button 
+            onClick={this.handleButtonOptionsDelete}
+            className={scssButtonDelete}>Удалить</button>
+          <button
+            onClick={this.handleButtonOptionsChange}
+            className={scss.buttonOptions}>
+            ...
+          </button>
+        </div>
+        <div>
+           {buttonEditIsPressed && <BookEdit/>}
+        </div>
       </li>
     )
  }

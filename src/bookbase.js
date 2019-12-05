@@ -44,5 +44,18 @@ export default [
                text: 'Яндекс диск'
                }
              ]  
-     }
+     },
+     {
+      id: 5,
+      author: 'Семен Геройченко',
+      titleBook: 'etieutyiueyrtieyrtieytiyerityeityeirtyieytierytierytieryieyieyieyieyrieyityerityeiryeirtyeiutyiet',
+      tags: [
+             {id: 1,
+              text: 'Читать'
+             },
+             {id: 5,
+              text: 'Яндекс диск'
+              }
+            ]  
+    }
 ]
