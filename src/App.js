@@ -1,12 +1,13 @@
 import React from 'react'
 import AddBook from './components/AddBook/AddBook'
 import BooksList from './components/BookList/BookList'
-import bookBase from './bookbase.js'
+import stateBook from './bookbase.js'
 
 class App extends React.Component {
   state = {
-    books: bookBase
+    books: stateBook.booksData
   }
+  debuger;
 
   handleAddBook = (data) => {
     data.id = Date.now();

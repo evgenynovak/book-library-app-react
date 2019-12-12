@@ -1,4 +1,5 @@
-export default [
+let stateBook = {
+  booksData: [
      {
        id: 1,
        author: 'Кондратий Либерман',
@@ -57,5 +58,8 @@ export default [
               text: 'Яндекс диск'
               }
             ]  
-    }
-]
+     } 
+   ]
+  }
+
+export default stateBook;
