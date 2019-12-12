@@ -1,21 +1,27 @@
-.addBook {
-  display: flex;
-  flex-direction: column;
-}
-
 
 .form {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  &__block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
   &__input {
     flex-grow: 1;
     margin-right: 10px;
     padding: 5px 5px;
+  }
+  &__tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 10px;
   }
 }

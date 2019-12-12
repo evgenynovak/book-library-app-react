@@ -5,7 +5,8 @@ import stateBook from './bookbase.js'
 
 class App extends React.Component {
   state = {
-    books: stateBook.booksData
+    books: stateBook.booksData,
+    tags: stateBook.tagsData
   }
   debuger;
 

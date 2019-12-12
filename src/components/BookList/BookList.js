@@ -22,7 +22,7 @@ class BookList extends React.Component {
     const data = this.props.data
     let bookItemsTemplate = null
     bookItemsTemplate =  data.map(function(item) {
-      return <BookItem key={item.id} data={item} onRemoveItem={this.handleRemoveItem}/>
+      return <BookItem key={item.id} data={item} tags={item.tags} onRemoveItem={this.handleRemoveItem}/>
     }, this)
     //!Внимание! в map использовал this вторым аргументом чтобы при следующем проходе сохранить контекст
     //Альтернативный способ использовать СТРЕЛОЧНУЮ ФУНКЦИЮ для сохранения текущего контекста
