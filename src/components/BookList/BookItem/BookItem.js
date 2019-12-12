@@ -7,7 +7,8 @@ class BookItem extends React.Component {
     super(props);
     this.state = {
         buttonOptionsIsPressed: false ,  // начальное значение для кнопки
-        buttonEditIsPressed: false
+        buttonEditIsPressed: false,
+        titleBook: this.props.data.titleBook
       };
   }
 
@@ -24,13 +25,15 @@ class BookItem extends React.Component {
  handleButtonEditChange = (e) => {
   e.preventDefault()
   this.setState({buttonEditIsPressed: !this.state.buttonEditIsPressed})
-  
+ }
+
+ handleBookEdit = (title) => {
+  this.setState({titleBook: title});
  }
 
 
 
  render() {
-  const data = this.props.data
   const buttonEditIsPressed = this.state.buttonEditIsPressed
   //в зависимости от значения buttonOptionsIsPressed 
   //отображаем или нет кнопки Редактировать и Удалить
@@ -42,7 +45,7 @@ class BookItem extends React.Component {
     return (
       <li className={scss.item}>
         <div className={scss.itemBookName}>
-          <div className={scss.bookName}>{data.titleBook}</div>
+          <div className={scss.bookName}>{this.state.titleBook}</div>
           <button 
             className={scssbuttonEdit}
             onClick={this.handleButtonEditChange}>Редактировать</button>
@@ -55,7 +58,7 @@ class BookItem extends React.Component {
             ...
           </button>
         </div>
-           {buttonEditIsPressed && <BookEdit data={this.props.data}/>}
+           {buttonEditIsPressed && <BookEdit data={this.props.data} onBookEdit={this.handleBookEdit}/>}
       </li>
     )
  }

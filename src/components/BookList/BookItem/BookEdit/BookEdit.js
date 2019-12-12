@@ -10,6 +10,8 @@ class BookEdit extends React.Component {
   }
 
   handleSubmitFormEdit = (e) => {
+    e.preventDefault()
+    this.props.onBookEdit(this.state.titleBook)
 
   }
 
