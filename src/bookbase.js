@@ -3,62 +3,46 @@ let stateBook = {
      {
        id: 1,
        author: 'Кондратий Либерман',
-       titleBook: 'Марсианский Марксизм Ленинизм',
-       tags: [
-               {id: 1,
-                text: 'Читать'
-               },
-               {id: 2,
-                text: 'На полке'
-               }
-             ]
+       titleBook: 'Марсианский Марксизм Ленинизм'
      },
      {
        id: 2,
        author: 'Софья Журналю',
-       titleBook: 'Забастовка робомашин',
-       tags: [
-              {id: 3,
-               text: 'Найти'
-              }
-             ]
+       titleBook: 'Забастовка робомашин'
      },
      {
        id: 3,
        author: 'Тимур Робинзонов',
-       titleBook: 'Новая мусорная планета',
-       tags: [
-               {id: 4,
-               text: 'В ipad'
-               }
-             ]
+       titleBook: 'Новая мусорная планета'
+       
      },
      {
        id: 4,
        author: 'Семен Геройченко',
-       titleBook: 'Банда касс самоабслуживания',
-       tags: [
-              {id: 1,
-               text: 'Читать'
-              },
-              {id: 5,
-               text: 'Яндекс диск'
-               }
-             ]  
+       titleBook: 'Банда касс самоабслуживания'
      },
      {
       id: 5,
-      author: 'Семен Геройченко',
-      titleBook: 'etieutyiueyrtieyrtieytiyerityeityeirtyieytierytierytieryieyieyieyieyrieyityerityeiryeirtyeiutyiet',
-      tags: [
-             {id: 1,
-              text: 'Читать'
-             },
-             {id: 5,
-              text: 'Яндекс диск'
-              }
-            ]  
-     } 
+      author: 'Армен Загребян',
+      titleBook: 'много текста очень много текста нереально много текста вообще текста очень много куда еще текста текст ',
+     }
+   ],
+   tagsData: [
+      {tagId: 1,
+       tagText: 'Читать'
+      },
+      {tagId: 2,
+       tagText: 'На полке'
+      },
+      {id: 3,
+        text: 'Найти'
+      },
+      {id: 4,
+        text: 'В ipad'
+      },
+      {id: 5,
+      text: 'Яндекс диск'
+      }
    ]
   }
 
