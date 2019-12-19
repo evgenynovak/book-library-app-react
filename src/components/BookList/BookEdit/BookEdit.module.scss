@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .form {
   display: flex;
   flex-direction: column;
@@ -7,7 +9,7 @@
   padding-right: 10px;
   padding-left: 10px;
   border: 1px solid;
-  border-color: #939393;
+  border-color: $primaryDark;
 }
 
 .formFieldset {

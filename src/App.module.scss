@@ -1,0 +1,7 @@
+@import './styles/variables.scss';
+
+.app {
+  margin: 0 auto;
+  max-width: 500px; 
+  background-color: $primary;
+}

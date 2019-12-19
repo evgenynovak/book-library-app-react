@@ -1,7 +1,9 @@
+@import '../../../styles/variables.scss';
+
 .item {
   margin-top: 10px;
   padding: 10px;
-  background-color: #ffffff;
+  background-color:  $primaryLight;
   &:first-child{
     margin-top: 0px;
   }

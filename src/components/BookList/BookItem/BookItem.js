@@ -1,5 +1,5 @@
 import React from 'react'
-import BookEdit from './BookEdit/BookEdit'
+import BookEdit from '../BookEdit/BookEdit'
 import scss from './BookItem.module.scss'
 
 class BookItem extends React.Component {

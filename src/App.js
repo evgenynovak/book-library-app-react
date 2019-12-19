@@ -1,6 +1,7 @@
 import React from 'react'
 import AddBook from './components/AddBook/AddBook'
 import BooksList from './components/BookList/BookList'
+import scss from './App.module.scss'
 import stateBook from './bookbase.js'
 
 class App extends React.Component {
@@ -19,11 +20,9 @@ class App extends React.Component {
  render() {
   console.log(this.state.books)
    return (
-    <div className="page">
-      <div className="page__containter">
+    <div className={scss.app}>
     <AddBook onAddBook={this.handleAddBook}/>
     <BooksList data={this.state.books}/>
-      </div>
     </div>
    )
  }

@@ -59,9 +59,9 @@ class AddBook extends React.Component {
               <label> <input type="checkbox" name="tags" value="1" onChange={ (e) => this.handleChange(e) }/> tag_1 </label>
               <label> <input type="checkbox" name="tags" value="2" onChange={ (e) => this.handleChange(e) }/> tag_2 </label>
               <label> <input type="checkbox" name="tags" value="3" onChange={ (e) => this.handleChange(e) }/> tag_3 </label>
-              <label> <input type="checkbox" name="tags" value="4" onChange={ (e) => this.handleChange(e) }/> tag_5 </label>
-              <label> <input type="checkbox" name="tags" value="5" onChange={ (e) => this.handleChange(e) }/> tag_6 </label>
-              <label> <input type="checkbox" name="tags" value="6" onChange={ (e) => this.handleChange(e) }/> tag_7 </label>
+              <label> <input type="checkbox" name="tags" value="4" onChange={ (e) => this.handleChange(e) }/> tag_4 </label>
+              <label> <input type="checkbox" name="tags" value="5" onChange={ (e) => this.handleChange(e) }/> tag_5 </label>
+              <label> <input type="checkbox" name="tags" value="6" onChange={ (e) => this.handleChange(e) }/> tag_6 </label>
             </div>
 
           </form>
