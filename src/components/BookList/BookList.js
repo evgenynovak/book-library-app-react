@@ -26,7 +26,7 @@ class BookList extends React.Component {
 
  render() {
    return (
-      <div className={scss.BookList}>
+      <div className={scss.bookList}>
         <ul className={scss.items}>
         {this.renderBookItems()}
         </ul>
