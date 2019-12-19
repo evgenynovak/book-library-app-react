@@ -11,24 +11,17 @@ class BookList extends React.Component {
   }
 
   handleRemoveItem = (id) => {
-    const index = this.props.data.findIndex(item => item.id == id);
+    const {data} = this.props
+    const index = data.findIndex(item => item.id === id);
       if (index > -1) {
-        this.props.data.splice(index, 1);
+        data.splice(index, 1);
         this.setState( { isRemoveItem: true} )
       }
-  } 
+  }
 
   renderBookItems = () => {
-    const data = this.props.data
-    let bookItemsTemplate = null
-    bookItemsTemplate =  data.map(function(item) {
-      return <BookItem key={item.id} data={item} tags={item.tags} onRemoveItem={this.handleRemoveItem}/>
-    }, this)
-    //!Внимание! в map использовал this вторым аргументом чтобы при следующем проходе сохранить контекст
-    //Альтернативный способ использовать СТРЕЛОЧНУЮ ФУНКЦИЮ для сохранения текущего контекста
-    //Добавил в zhenek12_faq_react 
-    //p.s. не переделываю здесь на стрелочную что бы как пример осталось.
-    return bookItemsTemplate
+    const {data} = this.props
+    return data.map(item => <BookItem key={item.id} data={item} tags={item.tags} onRemoveItem={this.handleRemoveItem}/>)
   }
 
  render() {
