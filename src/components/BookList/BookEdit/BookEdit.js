@@ -1,41 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import scss from './BookEdit.module.scss'
 
-class BookEdit extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        titleBook : this.props.data.titleBook
-      };
-  }
+function BookEdit(props)  {
+  const [titleBook, setTitleBook] = useState(props.data.titleBook);
 
-  handleSubmitFormEdit = (e) => {
+
+  const handleSubmitFormEdit = (e) => {
     e.preventDefault()
-    this.props.onBookEdit(this.state.titleBook)
+    props.onBookEdit(titleBook)
 
   }
 
-  handleChangeInputTitle = (e) => {
-    this.setState({titleBook: e.target.value});
+  const handleChangeInputTitle = (e) => {
+    setTitleBook(e.target.value);
   }
 
- render() {
-  const data = this.props.data
-    return (
-        <form className={scss.form} onSubmit={this.handleSubmitFormEdit}>
+ return(
+        <form className={scss.form} onSubmit={handleSubmitFormEdit}>
             <label className={scss.formLabel}>Название книги</label>
             <input 
               className={scss.formInputTitle}
               id='titleBook'
               type='text' 
-              value={this.state.titleBook}
-              onChange={this.handleChangeInputTitle}
+              value={titleBook}
+              onChange={handleChangeInputTitle}
               placeholder='Введите название книги'
             />
         <input className={scss.formSubmit} type='submit' name='submit' value="Сохранить"/>
       </form>
-    )
-  }
+  )
  }
  
  export default BookEdit
