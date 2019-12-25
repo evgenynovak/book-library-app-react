@@ -32,7 +32,6 @@ function AddBook(props)  {
     props.onAddBook(data)
     setTitleBook('')
     setTags([])
-    debugger
   }
 
   return (
