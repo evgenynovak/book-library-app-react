@@ -1,67 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BookEdit from '../BookEdit/BookEdit'
 import scss from './BookItem.module.scss'
 
-class BookItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        buttonOptionsIsPressed: false ,  // начальное значение для кнопки
-        buttonEditIsPressed: false,
-        titleBook: this.props.data.titleBook
-      };
-  }
+function BookItem(props) {
+  const [buttonOptionsIsPressed, setButtonOptionsIsPressed] = useState(false);
+  const [buttonEditIsPressed, setButtonEditIsPressed] = useState(false);
+  const [titleBook, setTitleBook] = useState(props.data.titleBook);
 
- handleButtonOptionsDelete = (e) => {
-  e.preventDefault()
-  this.props.onRemoveItem(this.props.data.id)
+  const handleButtonOptionsDelete = (e) => {
+    e.preventDefault()
+    const {data} = props
+    props.onRemoveItem(data.id)
  }
 
- handleButtonOptionsChange = (e) => { 
+ const handleButtonOptionsChange = (e) => { 
    e.preventDefault()
-   this.setState({buttonOptionsIsPressed: !this.state.buttonOptionsIsPressed})
+   setButtonOptionsIsPressed(!buttonOptionsIsPressed)
  }
 
- handleButtonEditChange = (e) => {
+ const handleButtonEditChange = (e) => {
   e.preventDefault()
-  this.setState({buttonEditIsPressed: !this.state.buttonEditIsPressed})
+  setButtonEditIsPressed(!buttonEditIsPressed)
  }
 
- handleBookEdit = (title) => {
-  this.setState({titleBook: title});
+ const handleBookEdit = (title) => {
+  setTitleBook(title);
  }
 
-
-
- render() {
-  const buttonEditIsPressed = this.state.buttonEditIsPressed
-  //в зависимости от значения buttonOptionsIsPressed 
-  //отображаем или нет кнопки Редактировать и Удалить
-  //!!!напрямую прописать условие в className не получилось, ругается то на {} то на scss.!!!ВОПРОС!!!
-  //пишу через использование переменных scssButtonDelete и scssbuttonEdit
-  //const scssButtonOption = this.state.buttonOptionsIsPressed ? scss.buttonOptions_hidden : scss.buttonOptions
-  const scssButtonDelete = this.state.buttonOptionsIsPressed ? scss.buttonDelete : scss.buttonDelete_hidden
-  const scssbuttonEdit = this.state.buttonOptionsIsPressed ? scss.buttonEdit : scss.buttonEdit_hidden
-    return (
+ const scssButtonDelete = buttonOptionsIsPressed ? scss.buttonDelete : scss.buttonDelete_hidden
+ const scssbuttonEdit = buttonOptionsIsPressed ? scss.buttonEdit : scss.buttonEdit_hidden
+ return (
       <li className={scss.item}>
         <div className={scss.itemBookName}>
-          <div className={scss.bookName}>{this.state.titleBook}</div>
+          <div className={scss.bookName}>{titleBook}</div>
           <button 
             className={scssbuttonEdit}
-            onClick={this.handleButtonEditChange}>Редактировать</button>
+            onClick={handleButtonEditChange}>Редактировать</button>
           <button 
-            onClick={this.handleButtonOptionsDelete}
+            onClick={handleButtonOptionsDelete}
             className={scssButtonDelete}>Удалить</button>
           <button
-            onClick={this.handleButtonOptionsChange}
+            onClick={handleButtonOptionsChange}
             className={scss.buttonOptions}>
             ...
           </button>
         </div>
-           {buttonEditIsPressed && <BookEdit data={this.props.data} onBookEdit={this.handleBookEdit}/>}
+           {buttonEditIsPressed && <BookEdit data={props.data} onBookEdit={handleBookEdit}/>}
       </li>
     )
- }
+ 
 }
  
  export default BookItem
