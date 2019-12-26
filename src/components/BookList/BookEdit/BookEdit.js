@@ -2,31 +2,24 @@ import React, { useState } from 'react'
 import scss from './BookEdit.module.scss'
 
 function BookEdit(props)  {
-  const [titleBook, setTitleBook] = useState(props.data.titleBook);
+  const [titleBook, setTitleBook] = useState(props.data);
 
-
-  const handleSubmitFormEdit = (e) => {
-    e.preventDefault()
-    props.onBookEdit(titleBook)
-
-  }
-
-  const handleChangeInputTitle = (e) => {
-    setTitleBook(e.target.value);
+  const handleSubmitFormEdit = () => {
+    const onBookEdit = props.onBookEdit
+    onBookEdit(titleBook)
   }
 
  return(
-        <form className={scss.form} onSubmit={handleSubmitFormEdit}>
+        <form className={scss.form}>
             <label className={scss.formLabel}>Название книги</label>
             <input 
               className={scss.formInputTitle}
-              id='titleBook'
               type='text' 
               value={titleBook}
-              onChange={handleChangeInputTitle}
+              onChange={(e) => setTitleBook(e.target.value)}
               placeholder='Введите название книги'
             />
-        <input className={scss.formSubmit} type='submit' name='submit' value="Сохранить"/>
+        <button className={scss.formSubmit} type='button' onClick={handleSubmitFormEdit}>Сохранить</button>
       </form>
   )
  }
