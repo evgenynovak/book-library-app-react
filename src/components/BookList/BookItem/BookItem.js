@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import BookEdit from '../BookEdit/BookEdit'
 import scss from './BookItem.module.scss'
 
@@ -7,20 +8,9 @@ function BookItem(props) {
   const [buttonEditIsPressed, setButtonEditIsPressed] = useState(false);
   const [titleBook, setTitleBook] = useState(props.data.titleBook);
 
-  const handleButtonOptionsDelete = (e) => {
-    e.preventDefault()
+  const handleButtonOptionsDelete = () => {
     const {data} = props
     props.onRemoveItem(data.id)
- }
-
- const handleButtonOptionsChange = (e) => { 
-   e.preventDefault()
-   setButtonOptionsIsPressed(!buttonOptionsIsPressed)
- }
-
- const handleButtonEditChange = (e) => {
-  e.preventDefault()
-  setButtonEditIsPressed(!buttonEditIsPressed)
  }
 
  const handleBookEdit = (title) => {
@@ -33,22 +23,32 @@ function BookItem(props) {
       <li className={scss.item}>
         <div className={scss.itemBookName}>
           <div className={scss.bookName}>{titleBook}</div>
-          <button 
-            className={scssbuttonEdit}
-            onClick={handleButtonEditChange}>Редактировать</button>
-          <button 
-            onClick={handleButtonOptionsDelete}
-            className={scssButtonDelete}>Удалить</button>
           <button
-            onClick={handleButtonOptionsChange}
+            className={scssbuttonEdit}
+            type='button'
+            onClick={ () => setButtonEditIsPressed(!buttonEditIsPressed) }>
+              Редактировать
+          </button>
+          <button
+            onClick={handleButtonOptionsDelete}
+            type='button'
+            className={scssButtonDelete}>Удалить
+          </button>
+          <button
+            onClick={ () => setButtonOptionsIsPressed(!buttonOptionsIsPressed)}
+            type='button'
             className={scss.buttonOptions}>
             ...
           </button>
         </div>
-           {buttonEditIsPressed && <BookEdit data={props.data} onBookEdit={handleBookEdit}/>}
+           {buttonEditIsPressed && <BookEdit data={titleBook} onBookEdit={handleBookEdit}/>}
       </li>
     )
  
 }
+
+BookItem.propTypes = {
+  data: PropTypes.object
+};
  
  export default BookItem
