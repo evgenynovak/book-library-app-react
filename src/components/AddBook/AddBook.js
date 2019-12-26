@@ -23,7 +23,6 @@ function AddBook(props)  {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
     const data = {
              id: id,
              titleBook: titleBook,
@@ -36,7 +35,7 @@ function AddBook(props)  {
 
   return (
         <div className={scss.addBook}>
-          <form className={scss.form} onSubmit={ (e) => handleSubmit(e) }>
+          <form className={scss.form}>
 
             <div className={scss.form__block}>
               <input 
@@ -44,10 +43,10 @@ function AddBook(props)  {
                 name='titleBook'
                 type='text' 
                 value={titleBook} 
-                onChange={ (e) => handleChange(e) }
+                onChange={handleChange}
                 placeholder='Введите название книги'
                 />
-              <input className={scss.form__submit} type='submit' name='submit'/>
+              <button className={scss.form__submit} type='button' onClick={handleSubmit}>Добавить</button>
             </div>
 
             <div className={scss.form__tags}>
