@@ -14,12 +14,15 @@ function AddBook(props)  {
       setTitleBook(target.value)
     };
 
-    if ((target.type === 'checkbox')) {// проверить нажат или нет и возможно повторяется
-      const newTagsSelected = target.value
-      setTags([...tags, newTagsSelected])
-    };
-
-
+    if (target.type === 'checkbox')  {
+      const index = tags.indexOf(target.value)
+      if (index == -1) {
+        if (target.checked === true) {
+          const newTagsSelected = target.value
+          setTags([...tags, newTagsSelected])
+        }
+      }
+    }
   }
 
   const handleSubmit = (e) => {
@@ -31,6 +34,15 @@ function AddBook(props)  {
     props.onAddBook(data)
     setTitleBook('')
     setTags([])
+  }
+
+  const renderTagItems = () => {
+    const tags = props.tags
+    return tags.map(tag => 
+      <label key={tag.tagId}> 
+        <input type="checkbox" name="tags" value={tag.tagId} onChange={handleChange}/>
+        {tag.tagText}
+      </label>)
   }
 
   return (
@@ -50,12 +62,7 @@ function AddBook(props)  {
             </div>
 
             <div className={scss.form__tags}>
-              <label> <input type="checkbox" name="tags" value="1" onChange={ (e) => handleChange(e) }/> tag_1 </label>
-              <label> <input type="checkbox" name="tags" value="2" onChange={ (e) => handleChange(e) }/> tag_2 </label>
-              <label> <input type="checkbox" name="tags" value="3" onChange={ (e) => handleChange(e) }/> tag_3 </label>
-              <label> <input type="checkbox" name="tags" value="4" onChange={ (e) => handleChange(e) }/> tag_4 </label>
-              <label> <input type="checkbox" name="tags" value="5" onChange={ (e) => handleChange(e) }/> tag_5 </label>
-              <label> <input type="checkbox" name="tags" value="6" onChange={ (e) => handleChange(e) }/> tag_6 </label>
+              {renderTagItems()}
             </div>
 
           </form>

@@ -14,6 +14,8 @@ function BookItem(props) {
  }
 
  const handleBookEdit = (title) => {
+  const {data} = props
+  data.titleBook = title
   setTitleBook(title);
  }
 

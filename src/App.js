@@ -27,7 +27,7 @@ function App() {
 
  return (
     <div className={scss.app}>
-    <AddBook onAddBook={handleAddBook}/>
+    <AddBook onAddBook={handleAddBook} tags={tags}/>
     <BooksList data={books} onRemoveItem={handleRemoveItem} change={isChange}/>
     </div>
  )
