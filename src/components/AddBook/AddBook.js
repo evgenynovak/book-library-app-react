@@ -4,28 +4,25 @@ import scss from './AddBook.module.scss'
 function AddBook(props)  {
   const [id, setId] = useState('');
   const [titleBook, setTitleBook] = useState('');
-  const [tags, setTags] = useState([]);
-
+  const [tagsSelected, setTagsSelected] = useState(props.tags);
 
   const handleChange = (e) => {
     const target = e.target;
 
     if ((target.type === 'text')) {
       setTitleBook(target.value)
-    };
+    }
 
     if (target.type === 'checkbox')  {
-      const index = tags.indexOf(target.value)
-      if (index == -1) {
-        if (target.checked === true) {
-          const newTagsSelected = target.value
-          setTags([...tags, newTagsSelected])
-        }
-      }
+      const data = tagsSelected
+      const item = data.find( tag => tag.tagId == target.value)
+      item.isChecked = !item.isChecked
+      setTagsSelected([...data])
     }
   }
 
   const handleSubmit = (e) => {
+    const tags = tagsSelected.filter( item => item.isChecked == true).map( item => item.tagId )
     const data = {
              id: id,
              titleBook: titleBook,
@@ -33,21 +30,27 @@ function AddBook(props)  {
           }
     props.onAddBook(data)
     setTitleBook('')
-    setTags([])
+    const NewTagsSelected = tagsSelected
+    NewTagsSelected.map( item => item.isChecked = false)
+    setTagsSelected([...NewTagsSelected])
   }
 
   const renderTagItems = () => {
-    const tags = props.tags
-    return tags.map(tag => 
-      <label key={tag.tagId}> 
-        <input type="checkbox" name="tags" value={tag.tagId} onChange={handleChange}/>
+    return tagsSelected.map(tag =>
+      <label key={tag.tagId}>
+        <input type="checkbox"
+        name="tags"
+        value={tag.tagId}
+        onChange={handleChange}
+        checked={tag.isChecked}
+        />
         {tag.tagText}
       </label>)
   }
 
   return (
         <div className={scss.addBook}>
-          <form className={scss.form}>
+          <form className={scss.form} name='addForm'>
 
             <div className={scss.form__block}>
               <input 
