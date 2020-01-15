@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import scss from './AddBook.module.scss'
 
 function AddBook(props)  {
@@ -9,7 +10,7 @@ function AddBook(props)  {
   const handleChange = (e) => {
     const target = e.target;
 
-    if ((target.type === 'text')) {
+    if (target.type === 'text') {
       setTitleBook(target.value)
     }
 
@@ -72,5 +73,11 @@ function AddBook(props)  {
         </div>
     )
  }
+
+
+ AddBook.propTypes = {
+  onAddBook: PropTypes.func,
+  tags: PropTypes.arrayOf(PropTypes.object)
+};
  
  export default AddBook
