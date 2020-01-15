@@ -20,7 +20,8 @@ function BookList(props)  {
 }
 
 BookList.propTypes = {
-  data: PropTypes.array
+  data: PropTypes.arrayOf(PropTypes.object),
+  onRemoveItem:  PropTypes.func
 };
 
 export default BookList
