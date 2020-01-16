@@ -6,8 +6,8 @@ import stateBook from './bookbase.js'
 
 function App() {
   const [books, setBooks] = useState(stateBook.booksData);
-  const [tags, setTags] = useState(stateBook.tagsData);
   const [isChange, setIsChange] = useState(false);
+  const tags = stateBook.tagsData;
 
   const handleAddBook = (data) => {
     data.id = Date.now();
@@ -28,7 +28,7 @@ function App() {
  return (
     <div className={scss.app}>
     <AddBook onAddBook={handleAddBook} tags={tags}/>
-    <BooksList data={books} onRemoveItem={handleRemoveItem} change={isChange}/>
+    <BooksList data={books} onRemoveItem={handleRemoveItem} change={isChange} tagsData={tags}/>
     </div>
  )
 }

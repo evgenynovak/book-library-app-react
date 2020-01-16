@@ -5,8 +5,8 @@ import scss from './AddBook.module.scss'
 function AddBook(props)  {
   const [id, setId] = useState('');
   const [titleBook, setTitleBook] = useState('');
-  const [tagsSelected, setTagsSelected] = useState(props.tags);
-
+  const [tagsSelected, setTagsSelected] = useState(props.tags.map( item => item = {...item}));
+ 
   const handleChange = (e) => {
     const target = e.target;
 
@@ -15,10 +15,10 @@ function AddBook(props)  {
     }
 
     if (target.type === 'checkbox')  {
-      const data = tagsSelected
+      const data = [...tagsSelected]
       const item = data.find( tag => tag.tagId == target.value)
       item.isChecked = !item.isChecked
-      setTagsSelected([...data])
+      setTagsSelected(data)
     }
   }
 
@@ -31,9 +31,9 @@ function AddBook(props)  {
           }
     props.onAddBook(data)
     setTitleBook('')
-    const NewTagsSelected = tagsSelected
+    const NewTagsSelected = [...tagsSelected]
     NewTagsSelected.map( item => item.isChecked = false)
-    setTagsSelected([...NewTagsSelected])
+    setTagsSelected(NewTagsSelected)
   }
 
   const renderTagItems = () => {
