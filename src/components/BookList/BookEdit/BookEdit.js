@@ -7,7 +7,9 @@ function BookEdit(props)  {
   const [bookTags, setBookTags] = useState(props.data.tags)
 
   const handleSubmitFormEdit = () => {
-    //добавить сохранение тегов
+    let {data} = props
+    const tagsCheked = tagsSelectedinEdit.filter( item => item.isChecked == true).map( item => item.tagId )
+    data.tags= [...tagsCheked]
     const onBookEdit = props.onBookEdit
     onBookEdit(titleBook)
   }

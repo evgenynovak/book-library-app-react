@@ -49,8 +49,7 @@ function BookItem(props) {
            {buttonEditIsPressed && <BookEdit titleBook={titleBook}
                                              data={data} 
                                              onBookEdit={handleBookEdit} 
-                                             tagsData={tagsData} 
-                                             tagsItem={props.data.tags} />}
+                                             tagsData={tagsData} />}
       </li>
     )
  
