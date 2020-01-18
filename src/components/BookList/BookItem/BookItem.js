@@ -22,6 +22,20 @@ function BookItem(props) {
   setTitleBook(title);
  }
 
+ const renderTags = () => {
+  const {tagsData} = props
+  const bookTags = props.data.tags
+  return tagsData.map( tag => 
+    bookTags.map( 
+     tagNumber => {
+       if (tag.tagId == tagNumber) {
+         return <span  key={tag.tagId}>{tag.tagText}</span>
+       }
+     }
+   )
+ )
+ }
+
  const scssButtonDelete = buttonOptionsIsPressed ? scss.buttonDelete : scss.buttonDelete_hidden
  const scssbuttonEdit = buttonOptionsIsPressed ? scss.buttonEdit : scss.buttonEdit_hidden
  return (
@@ -46,6 +60,7 @@ function BookItem(props) {
             ...
           </button>
         </div>
+        <div>{renderTags()}</div>
            {buttonEditIsPressed && <BookEdit titleBook={titleBook}
                                              data={data} 
                                              onBookEdit={handleBookEdit} 
