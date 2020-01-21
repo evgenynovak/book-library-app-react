@@ -6,12 +6,10 @@ function BookEdit(props)  {
   const [tagsSelectedinEdit, setTagsSelectedinEdit] = useState(props.tagsData.map( item => item = {...item}));
   const [bookTags, setBookTags] = useState(props.data.tags)
 
-  const handleSubmitFormEdit = () => {
-    let {data} = props
-    const tagsCheked = tagsSelectedinEdit.filter( item => item.isChecked == true).map( item => item.tagId )
-    data.tags= [...tagsCheked]
-    const onBookEdit = props.onBookEdit
-    onBookEdit(titleBook)
+ const handleSubmitFormEdit = () => {
+  const tagsCheked = tagsSelectedinEdit.filter( item => item.isChecked == true).map( item => item.tagId )
+  const onBookEdit = props.onBookEdit
+  onBookEdit(titleBook, tagsCheked)
   }
 
   const handleChangeTagsSelect = (e) => {

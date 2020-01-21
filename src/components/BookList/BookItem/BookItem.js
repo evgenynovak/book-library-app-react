@@ -7,6 +7,7 @@ function BookItem(props) {
   const [buttonOptionsIsPressed, setButtonOptionsIsPressed] = useState(false);
   const [buttonEditIsPressed, setButtonEditIsPressed] = useState(false);
   const [titleBook, setTitleBook] = useState(props.data.titleBook);
+  const [tagsBook, setTagsBook] =  useState(props.data.tags);
 
   const {data} = props
   const {tagsData} = props
@@ -16,10 +17,12 @@ function BookItem(props) {
     props.onRemoveItem(data.id)
  }
 
- const handleBookEdit = (title) => {
+ const handleBookEdit = (title, tagsCheked) => {
   const {data} = props
   data.titleBook = title
+  data.tags = tagsCheked
   setTitleBook(title);
+  setTagsBook(tagsCheked)
  }
 
  const renderTags = () => {
