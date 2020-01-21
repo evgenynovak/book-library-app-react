@@ -8,9 +8,11 @@ function BookItem(props) {
   const [buttonEditIsPressed, setButtonEditIsPressed] = useState(false);
   const [titleBook, setTitleBook] = useState(props.data.titleBook);
   const [tagsBook, setTagsBook] =  useState(props.data.tags);
-
+  const [isChange, setIsChange] = useState(false);
+  
   const {data} = props
   const {tagsData} = props
+  const {changeApp} = props
 
   const handleButtonOptionsDelete = () => {
     const {data} = props
@@ -25,6 +27,10 @@ function BookItem(props) {
   setTagsBook(tagsCheked)
  }
 
+ const handleBookEditClose = () => {
+  setButtonEditIsPressed(false)
+ }
+
  const renderTags = () => {
   const {tagsData} = props
   const bookTags = props.data.tags
@@ -37,6 +43,12 @@ function BookItem(props) {
      }
    )
  )
+ }
+
+ if (changeApp != isChange) {
+  setButtonOptionsIsPressed(false)
+  setButtonEditIsPressed(false)
+  setIsChange(changeApp)
  }
 
  const scssButtonDelete = buttonOptionsIsPressed ? scss.buttonDelete : scss.buttonDelete_hidden
@@ -64,10 +76,12 @@ function BookItem(props) {
           </button>
         </div>
         <div>{renderTags()}</div>
-           {buttonEditIsPressed && <BookEdit titleBook={titleBook}
-                                             data={data} 
-                                             onBookEdit={handleBookEdit} 
-                                             tagsData={tagsData} />}
+
+        {buttonEditIsPressed && <BookEdit titleBook={titleBook}
+                                          data={data} 
+                                          onBookEdit={handleBookEdit}
+                                          onBookEditClose={handleBookEditClose}
+                                          tagsData={tagsData} />}
       </li>
     )
  

@@ -13,6 +13,7 @@ function App() {
     data.id = Date.now();
     const nextBook = [data, ...books]
     setBooks(nextBook)
+    setIsChange(!isChange)
   }
 
   const handleRemoveItem = (id) => {
@@ -28,7 +29,7 @@ function App() {
  return (
     <div className={scss.app}>
     <AddBook onAddBook={handleAddBook} tags={tags}/>
-    <BooksList data={books} onRemoveItem={handleRemoveItem} change={isChange} tagsData={tags}/>
+    <BooksList data={books} onRemoveItem={handleRemoveItem} changeApp={isChange} tagsData={tags}/>
     </div>
  )
 }

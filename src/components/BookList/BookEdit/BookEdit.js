@@ -12,6 +12,11 @@ function BookEdit(props)  {
   onBookEdit(titleBook, tagsCheked)
   }
 
+  const handleEditClose= () => {
+    const {onBookEditClose} = props
+    onBookEditClose()
+  }
+
   const handleChangeTagsSelect = (e) => {
     const target = e.target;
     const data = [...tagsSelectedinEdit]
@@ -63,6 +68,7 @@ function BookEdit(props)  {
              {renderTagItemsInEdit()}
             </div>
         <button className={scss.formSubmit} type='button' onClick={handleSubmitFormEdit}>Сохранить</button>
+        <button className={scss.formSubmit} type='button' onClick={handleEditClose}>Закрыть</button>
       </form>
   )
  }
