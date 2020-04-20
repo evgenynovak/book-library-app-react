@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+.addTags {
+  padding: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  margin: 0 -5px;
+  margin-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 1px solid;
+  border-color: $primaryDark;
+}
+
+
+.formInputTitle {
+  width: 100%;
+  padding: 5px;
+  margin: 0 5px;
+}
+
+.formSubmit {
+  margin: 0 5px;
+}

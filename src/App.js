@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import AddBook from './components/AddBook/AddBook'
+import AddTags from './components/AddTags/AddTags'
 import BooksList from './components/BookList/BookList'
 import scss from './App.module.scss'
 import stateBook from './bookbase.js'
@@ -7,12 +8,18 @@ import stateBook from './bookbase.js'
 function App() {
   const [books, setBooks] = useState(stateBook.booksData);
   const [isChange, setIsChange] = useState(false);
-  const tags = stateBook.tagsData;
+  const [tags, setTags] = useState(stateBook.tagsData);
 
   const handleAddBook = (data) => {
     data.id = Date.now();
     const nextBook = [data, ...books]
     setBooks(nextBook)
+    setIsChange(!isChange)
+  }
+
+  const handleAddTag = (data) => {
+    const nextTag = [data, ...tags]
+    setTags(nextTag)
     setIsChange(!isChange)
   }
 
@@ -28,7 +35,8 @@ function App() {
 
  return (
     <div className={scss.app}>
-    <AddBook onAddBook={handleAddBook} tags={tags}/>
+    <AddBook onAddBook={handleAddBook} tagsData={tags}/>
+    <AddTags onAddTag={handleAddTag}/>
     <BooksList data={books} onRemoveItem={handleRemoveItem} changeApp={isChange} tagsData={tags}/>
     </div>
  )

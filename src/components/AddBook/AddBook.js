@@ -5,8 +5,13 @@ import scss from './AddBook.module.scss'
 function AddBook(props)  {
   const [id, setId] = useState('');
   const [titleBook, setTitleBook] = useState('');
-  const [tagsSelected, setTagsSelected] = useState(props.tags.map( item => item = {...item}));
- 
+  const [tagsSelected, setTagsSelected] = useState(props.tagsData.map( item => item = {...item}));
+  
+  if (tagsSelected.length != props.tagsData.length) {
+    setTagsSelected(props.tagsData.map( item => item = {...item}))
+  }
+
+
   const handleChange = (e) => {
     const target = e.target;
 
@@ -31,9 +36,7 @@ function AddBook(props)  {
           }
     props.onAddBook(data)
     setTitleBook('')
-    const NewTagsSelected = [...tagsSelected]
-    NewTagsSelected.map( item => item.isChecked = false)
-    setTagsSelected(NewTagsSelected)
+    tagsSelected.map( item => item.isChecked = false)
   }
 
   const renderTagItems = () => {
@@ -77,7 +80,7 @@ function AddBook(props)  {
 
  AddBook.propTypes = {
   onAddBook: PropTypes.func,
-  tags: PropTypes.arrayOf(PropTypes.object)
+  tagsData: PropTypes.arrayOf(PropTypes.object)
 };
  
  export default AddBook
