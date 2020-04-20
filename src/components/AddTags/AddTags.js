@@ -29,7 +29,7 @@ function AddTags(props) {
     <button
       type='button'
       onClick={handleOpenClose}>
-      Теги... {buttonEditTagsIsPressed}
+      Теги...
     </button>
 
     {buttonEditTagsIsPressed && 
@@ -51,6 +51,10 @@ function AddTags(props) {
   )
 
 }
+
+AddTags.propTypes = {
+  onAddTag: PropTypes.func
+};
 
 export default AddTags
 
