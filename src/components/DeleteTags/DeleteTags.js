@@ -46,15 +46,18 @@ function DeleteTags(props) {
   }
 
   return (
-    <div className={scss.deleteTags}>
-      <button
+    <div className={buttonEditTagsIsPressed && scss.deleteTags}>
+      <button className={buttonEditTagsIsPressed && scss.hidden}
         type='button'
         onClick={handleOpenClose}>
         Удалить тег
       </button>
       {buttonEditTagsIsPressed && 
-        <div>
+        <div className={scss.listTags}>
+          <span className={scss.title}>Выберите тег(и) для удаления</span>
+          <br/><br/>
           {renderTagItems()}
+          <br/>
           <button className={scss.formSubmit} type='button' onClick={handleSubmitDeleteTags}> Удалить </button>
           <button className={scss.formSubmit} type='button' onClick={handleOpenClose}> X </button>
         </div>

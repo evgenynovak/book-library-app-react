@@ -1,7 +1,27 @@
 @import '../../styles/variables.scss';
 
 .deleteTags {
-  padding-left: 10px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.formSubmit {
+  margin: 20px 5px 10px 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.listTags {
+  padding: 10px;
+  border: 1px solid;
+  border-color: $primaryDark;
+}
+.title {
+  padding-left: 5px;
+  font-weight: bold;
 }
