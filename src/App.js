@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import AddBook from './components/AddBook/AddBook'
 import AddTags from './components/AddTags/AddTags'
 import BooksList from './components/BookList/BookList'
+import DeleteTags from './components/DeleteTags/DeleteTags'
 import scss from './App.module.scss'
 import stateBook from './bookbase.js'
 
@@ -23,6 +24,20 @@ function App() {
     setIsChange(!isChange)
   }
 
+  const handleDeleteTag = (data) => {
+    const newTags = [...tags]
+    data.map(dataTagId => 
+      newTags.map(tag => {
+        if (tag.tagId == dataTagId) {
+          newTags.splice(newTags.indexOf(tag), 1)
+        }
+      }
+      )
+    ) 
+    setTags(newTags)
+    setIsChange(!isChange)
+  }
+
   const handleRemoveItem = (id) => {
     const data = books
     const index = data.findIndex(item => item.id === id);
@@ -37,6 +52,7 @@ function App() {
     <div className={scss.app}>
     <AddBook onAddBook={handleAddBook} tagsData={tags}/>
     <AddTags onAddTag={handleAddTag}/>
+    <DeleteTags tagsData={tags} onDeleteTag={handleDeleteTag}/>
     <BooksList data={books} onRemoveItem={handleRemoveItem} changeApp={isChange} tagsData={tags}/>
     </div>
  )

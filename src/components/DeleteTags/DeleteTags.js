@@ -4,6 +4,63 @@ import scss from './DeleteTags.module.scss'
 
 function DeleteTags(props) {
 
+  const [buttonEditTagsIsPressed, setButtonEditTagsIsPressed] = useState(false);
+  const [tagsSelected, setTagsSelected] = useState(props.tagsData.map( item => item = {...item}));
+
+  if (tagsSelected.length != props.tagsData.length) {
+    setTagsSelected(props.tagsData.map( item => item = {...item}))
+  }
+
+  let {onDeleteTag} = props
+
+  let handleOpenClose = () => {
+    setButtonEditTagsIsPressed(!buttonEditTagsIsPressed)
+  }
+
+  const renderTagItems = () => {
+    return tagsSelected.map(tag =>
+      <label key={tag.tagId}>
+        <input type="checkbox"
+        name="tags"
+        value={tag.tagId}
+        onChange={handleChange}
+        checked={tag.isChecked}
+        />
+        {tag.tagText}
+      </label>)
+  }
+
+  const handleChange = (e) => {
+    const target = e.target;
+    console.log(target)
+    const data = [...tagsSelected]
+    const item = data.find( tag => tag.tagId == target.value)
+    item.isChecked = !item.isChecked
+    setTagsSelected(data)
+  }
+
+  const handleSubmitDeleteTags = () => {
+    const tagsCheked = tagsSelected.filter( item => item.isChecked == true).map( item => item.tagId )
+    onDeleteTag(tagsCheked)
+    console.log(tagsCheked)
+  }
+
+  return (
+    <div className={scss.deleteTags}>
+      <button
+        type='button'
+        onClick={handleOpenClose}>
+        Удалить
+      </button>
+      {buttonEditTagsIsPressed && 
+        <div>
+          {renderTagItems()}
+          <button className={scss.formSubmit} type='button' onClick={handleSubmitDeleteTags}> Удалить </button>
+          <button className={scss.formSubmit} type='button' onClick={handleOpenClose}> X </button>
+        </div>
+      }
+    </div>
+  )
 }
 
 /*
