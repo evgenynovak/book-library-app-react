@@ -5,3 +5,11 @@
   max-width: 500px; 
   background-color: $primary;
 }
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  align-items: center;
+  flex-wrap: wrap;
+}

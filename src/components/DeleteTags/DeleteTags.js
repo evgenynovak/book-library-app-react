@@ -50,7 +50,7 @@ function DeleteTags(props) {
       <button
         type='button'
         onClick={handleOpenClose}>
-        Удалить
+        Удалить тег
       </button>
       {buttonEditTagsIsPressed && 
         <div>

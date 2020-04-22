@@ -51,8 +51,10 @@ function App() {
  return (
     <div className={scss.app}>
     <AddBook onAddBook={handleAddBook} tagsData={tags}/>
-    <AddTags onAddTag={handleAddTag}/>
-    <DeleteTags tagsData={tags} onDeleteTag={handleDeleteTag}/>
+    <div className={scss.tags}>
+      <AddTags onAddTag={handleAddTag}/>
+      <DeleteTags tagsData={tags} onDeleteTag={handleDeleteTag}/>
+    </div>
     <BooksList data={books} onRemoveItem={handleRemoveItem} changeApp={isChange} tagsData={tags}/>
     </div>
  )

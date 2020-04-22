@@ -26,14 +26,13 @@ function AddTags(props) {
 
   return (
     <div className={scss.addTags}>
-    <button
+    <button className={buttonEditTagsIsPressed && scss.hidden}
       type='button'
       onClick={handleOpenClose}>
-      Теги...
+      Добавить тег
     </button>
 
     {buttonEditTagsIsPressed && 
-      <div>
         <form className={scss.form}>
           <input 
             className={scss.formInputTitle}
@@ -42,10 +41,9 @@ function AddTags(props) {
             onChange={(e) => setTagName(e.target.value)}
             placeholder='Введите название тега'
           />
-        <button className={scss.formSubmit} type='button' onClick={handleSubmitFormAddTags}>Сохранить</button> 
+        <button className={scss.formSubmit} type='button' onClick={handleSubmitFormAddTags}>Добавить тег</button> 
         <button className={scss.formSubmit} type='button' onClick={handleOpenClose}> X </button>
         </form>
-      </div>
     }
     </div>
   )
