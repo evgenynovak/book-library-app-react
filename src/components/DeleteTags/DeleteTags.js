@@ -19,14 +19,14 @@ function DeleteTags(props) {
 
   const renderTagItems = () => {
     return tagsSelected.map(tag =>
-      <label key={tag.tagId}>
+      <label key={tag.tagId} className={scss.checkbox}>
         <input type="checkbox"
         name="tags"
         value={tag.tagId}
         onChange={handleChange}
         checked={tag.isChecked}
         />
-        {tag.tagText}
+        <div className={scss.checkbox__text}>{tag.tagText}</div>
       </label>)
   }
 
@@ -55,9 +55,9 @@ function DeleteTags(props) {
       {buttonEditTagsIsPressed && 
         <div className={scss.listTags}>
           <span className={scss.title}>Выберите тег(и) для удаления</span>
-          <br/><br/>
-          {renderTagItems()}
-          <br/>
+          <div className={scss.tagsBlock}>
+            {renderTagItems()}
+          </div>
           <button className={scss.formSubmit} type='button' onClick={handleSubmitDeleteTags}> Удалить </button>
           <button className={scss.formSubmit} type='button' onClick={handleOpenClose}> X </button>
         </div>
