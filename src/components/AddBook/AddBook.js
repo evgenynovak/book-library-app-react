@@ -41,14 +41,14 @@ function AddBook(props)  {
 
   const renderTagItems = () => {
     return tagsSelected.map(tag =>
-      <label key={tag.tagId}>
+      <label key={tag.tagId} className={scss.checkbox}>
         <input type="checkbox"
         name="tags"
         value={tag.tagId}
         onChange={handleChange}
         checked={tag.isChecked}
         />
-        {tag.tagText}
+        <div className={scss.checkbox__text}>{tag.tagText}</div>
       </label>)
   }
 
