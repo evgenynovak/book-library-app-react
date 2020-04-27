@@ -30,7 +30,7 @@
 .checkbox {
   padding-right: 15px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   input {
     position: absolute;
     z-index: -1;
@@ -55,6 +55,8 @@
     padding: 4px 10px 4px 55px;
     cursor: pointer;
     text-transform: lowercase;
+    color: $secondary;
+    font-weight: 600;
     border-radius: 45px;
     border: 1px #CDD1DA solid;
     &:after {

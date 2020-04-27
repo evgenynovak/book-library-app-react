@@ -38,7 +38,7 @@ function BookItem(props) {
     bookTags.map( 
      tagNumber => {
        if (tag.tagId == tagNumber) {
-         return <span  key={tag.tagId} className={scss.tag}>{tag.tagText}</span>
+         return <span key={tag.tagId} className={scss.tag}>{tag.tagText}</span>
        }
      }
    )
