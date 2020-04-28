@@ -48,7 +48,7 @@ function AddBook(props)  {
         onChange={handleChange}
         checked={tag.isChecked}
         />
-        <div className={scss.checkbox__text}>{tag.tagText}</div>
+        <div className={scss.checkbox__text_green}>{tag.tagText}</div>
       </label>)
   }
 

@@ -41,34 +41,33 @@ function BookEdit(props)  {
     setBookTags(null)
     }
     return tagsSelectedinEdit.map(tag =>
-      <label key={tag.tagId}>
-        <input type="checkbox"
+      <label key={tag.tagId}  className={scss.checkbox}>
+        <input type="checkbox" 
         name="tags"
         value={tag.tagId}
         onChange={handleChangeTagsSelect}
         checked={tag.isChecked}
         />
-        {tag.tagText}
+        <div className={scss.checkbox__text_green}>{tag.tagText}</div>
       </label>)
   }
 
  return(
-        <form className={scss.form}>
-            <label className={scss.formLabel}>Название книги</label>
-            <input 
-              className={scss.formInputTitle}
-              type='text' 
-              value={titleBook}
-              onChange={(e) => setTitleBook(e.target.value)}
-              placeholder='Введите название книги'
-            />
-            <div></div>
-            <label className={scss.formLabel}>Теги</label>
-            <div>
-             {renderTagItemsInEdit()}
-            </div>
+      <form className={scss.form}>
+        <input
+          className={scss.formInputTitle}
+          type='text' 
+          value={titleBook}
+          onChange={(e) => setTitleBook(e.target.value)}
+          placeholder='Введите название книги'
+        />
+        <div className={scss.formTags}>
+          {renderTagItemsInEdit()}
+        </div>
+        <div className={scss.formBlock}>
         <button className={scss.formSubmit} type='button' onClick={handleSubmitFormEdit}>Сохранить</button>
-        <button className={scss.formSubmit} type='button' onClick={handleEditClose}>Закрыть</button>
+        <button className={scss.formSubmit} type='button' onClick={handleEditClose}>X</button>
+        </div>
       </form>
   )
  }
