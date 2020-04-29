@@ -29,6 +29,7 @@ function BookItem(props) {
 
  const handleBookEditClose = () => {
   setButtonEditIsPressed(false)
+  setButtonOptionsIsPressed(false)
  }
 
  const renderTags = () => {
